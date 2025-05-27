@@ -3,42 +3,61 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lawyer in Your Pocket</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
+  <title>Legal Companion</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>Lawyer in Your Pocket</h1>
-    <p>Your on-demand legal and government services guide</p>
+    <div class="container">
+      <h1>Legal Companion</h1>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#resources">Resources</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <main>
-    <section class="intro">
-      <h2>Empowering South Africans with accessible legal resources</h2>
-      <p>From leases and wills to divorce, taxes, and work disputes—get everything you need in one place.</p>
-    </section>
+  <section class="hero">
+    <div class="container">
+      <h2>Your Lawyer in Your Pocket</h2>
+      <p>Access legal resources and step-by-step guidance for any situation—no lawyer fees, no confusion.</p>
+      <a href="#contact" class="cta-button">Get Started</a>
+    </div>
+  </section>
 
-    <section class="features">
-      <h2>Key Features</h2>
-      <ul>
-        <li>Guided legal workflows & templates</li>
-        <li>Plain-language resources & how-to guides</li>
-        <li>AI-powered chat for step-by-step help</li>
-        <li>Offline-first experience (PWA-ready)</li>
-      </ul>
-    </section>
+  <section id="features" class="features">
+    <div class="container">
+      <h2>Features</h2>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <h3>Step-by-Step Guides</h3>
+          <p>Easy-to-follow legal processes for family, work, and housing needs.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Templates & Documents</h3>
+          <p>Downloadable forms and checklists to handle cases yourself.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Offline Ready</h3>
+          <p>Access your resources and guides even without an internet connection.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section class="cta">
-      <h2>Start Exploring</h2>
-      <p>Tap below to see our resources and tools for your specific needs.</p>
-      <a href="services.html" class="button">Explore Services</a>
-    </section>
-  </main>
+  <section id="resources" class="resources">
+    <div class="container">
+      <h2>Resources</h2>
+      <p>Browse a library of plain-language legal guides, sample forms, and practical advice tailored to your needs.</p>
+      <a href="#contact" class="cta-button">Explore Resources</a>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2025 Lawyer in Your Pocket. All rights reserved.</p>
+  <footer id="contact" class="footer">
+    <div class="container">
+      <p>&copy; 2025 Legal Companion. All rights reserved.</p>
+    </div>
   </footer>
 </body>
 </html>
