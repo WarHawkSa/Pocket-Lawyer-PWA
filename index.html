@@ -1,213 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lawyer in Your Pocket</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --primary-color: #0a3d62;
-      --secondary-color: #3c6382;
-      --accent-color: #38ada9;
-      --bg-color: #f5f6fa;
-      --text-color: #222;
-    }
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    html {
-      scroll-behavior: smooth;
-    }
-    body {
-      font-family: 'Roboto', sans-serif;
-      line-height: 1.6;
-      background: var(--bg-color);
-      color: var(--text-color);
-    }
-    header {
-      background: var(--primary-color);
-      color: #fff;
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-    }
-    header h1 {
-      font-size: 1.5rem;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin-left: 1rem;
-      font-weight: 500;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    .hero {
-      background: var(--secondary-color);
-      color: #fff;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-    .hero h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-    .hero p {
-      max-width: 600px;
-      margin: 0 auto;
-      font-size: 1rem;
-    }
-    .section {
-      padding: 3rem 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-    .section h3 {
-      font-size: 1.4rem;
-      margin-bottom: 1rem;
-      color: var(--primary-color);
-    }
-    .section p {
-      margin-bottom: 1rem;
-    }
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-    .feature {
-      background: #fff;
-      border-radius: 8px;
-      padding: 1rem;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: transform 0.3s ease;
-    }
-    .feature:hover {
-      transform: translateY(-5px);
-    }
-    .feature h4 {
-      margin-bottom: 0.5rem;
-      color: var(--secondary-color);
-    }
-    footer {
-      background: var(--primary-color);
-      color: #fff;
-      text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
-    }
-    footer p {
-      font-size: 0.9rem;
-    }
-    .btn {
-      display: inline-block;
-      background: var(--accent-color);
-      color: #fff;
-      padding: 0.7rem 1.5rem;
-      border-radius: 4px;
-      text-decoration: none;
-      margin-top: 1rem;
-      font-weight: 500;
-      transition: background 0.3s ease;
-    }
-    .btn:hover {
-      background: #079992;
-    }
-    @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        align-items: flex-start;
-      }
-      header h1 {
-        margin-bottom: 1rem;
-      }
-    }
-  </style>
+  <title>Your App - Lawyer in Your Pocket</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@3.3.2/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-  <header>
-    <h1>Lawyer in Your Pocket</h1>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="#features">Features</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<body class="font-sans bg-gray-50 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white shadow-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <h1 class="text-xl font-bold text-indigo-600">Your App</h1>
+      <nav class="space-x-4 text-sm font-medium">
+        <a href="#features" class="text-gray-700 hover:text-indigo-600">Features</a>
+        <a href="#testimonials" class="text-gray-700 hover:text-indigo-600">Testimonials</a>
+        <a href="#contact" class="text-gray-700 hover:text-indigo-600">Contact</a>
+      </nav>
+    </div>
   </header>
 
-  <section class="hero">
-    <h2>Your Legal Ally, Always with You</h2>
-    <p>Access professional-grade legal resources, step-by-step guides, and document templates — anywhere, anytime.</p>
-    <a href="#contact" class="btn">Get Started</a>
+  <!-- Hero -->
+  <section class="bg-gradient-to-r from-indigo-600 to-purple-600 text-white text-center py-24">
+    <div class="max-w-2xl mx-auto px-4">
+      <h2 class="text-4xl font-extrabold mb-4">Your Lawyer in Your Pocket</h2>
+      <p class="text-lg mb-6">Empowering every South African with on-demand legal guidance and resources – all in one app.</p>
+      <a href="#features" class="bg-white text-indigo-600 font-semibold px-6 py-3 rounded-full hover:bg-gray-200 transition">Explore Features</a>
+    </div>
   </section>
 
-  <section id="services" class="section">
-    <h3>Our Core Services</h3>
-    <p>We help you handle common legal needs without costly lawyers or complex processes:</p>
-    <div class="features">
-      <div class="feature">
-        <h4>Family & Personal Law</h4>
-        <p>Marriage contracts, divorces, wills, domestic violence protection orders, and more.</p>
-      </div>
-      <div class="feature">
-        <h4>Employment & Labor</h4>
-        <p>Unfair dismissal claims, wage disputes, CCMA referrals, and contract reviews.</p>
-      </div>
-      <div class="feature">
-        <h4>Housing & Rental</h4>
-        <p>Eviction disputes, tenant rights, body corporate issues, and municipal appeals.</p>
-      </div>
-      <div class="feature">
-        <h4>Small Business</h4>
-        <p>CIPC registration, SARS tax setups, supplier contracts, and Consumer Protection Act claims.</p>
+  <!-- Features -->
+  <section id="features" class="py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center mb-10">Key Features</h3>
+      <div class="grid md:grid-cols-3 gap-8">
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Personalized Legal Steps</h4>
+          <p>Step-by-step guides for leases, divorces, CCMA disputes, and more.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Document Wizards</h4>
+          <p>Auto-fill and download legal documents in seconds – wills, affidavits, contracts.</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow hover:shadow-lg transition">
+          <h4 class="text-xl font-semibold mb-2 text-indigo-600">Offline & Multilingual</h4>
+          <p>Accessible anywhere, anytime, in multiple languages with offline support.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="features" class="section">
-    <h3>Why Choose Us?</h3>
-    <div class="features">
-      <div class="feature">
-        <h4>Document Automation</h4>
-        <p>Auto-fill forms, e-signature readiness, and downloadable templates.</p>
-      </div>
-      <div class="feature">
-        <h4>Expert-Backed Content</h4>
-        <p>All resources reviewed and updated to ensure reliability and trustworthiness.</p>
-      </div>
-      <div class="feature">
-        <h4>Offline Support</h4>
-        <p>Progress is saved so you can continue even without internet access.</p>
-      </div>
-      <div class="feature">
-        <h4>Accessibility First</h4>
-        <p>Multilingual support, plain language guides, and fully mobile-ready.</p>
+  <!-- Testimonials -->
+  <section id="testimonials" class="bg-gray-100 py-16">
+    <div class="max-w-6xl mx-auto px-4">
+      <h3 class="text-3xl font-bold text-center mb-10">What Our Users Say</h3>
+      <div class="md:flex gap-8">
+        <div class="bg-white p-6 rounded-lg shadow text-center">
+          <p class="italic mb-4">“This app saved me thousands in lawyer fees. I had everything I needed for my lease dispute!”</p>
+          <p class="font-semibold">- Lerato, Cape Town</p>
+        </div>
+        <div class="bg-white p-6 rounded-lg shadow text-center mt-6 md:mt-0">
+          <p class="italic mb-4">“Fast, easy, and trustworthy. I sorted my UIF claim in minutes.”</p>
+          <p class="font-semibold">- Sipho, Johannesburg</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <section id="contact" class="section">
-    <h3>Contact Us</h3>
-    <p>Let’s work together to simplify your legal journey.</p>
-    <form action="#" method="post" style="max-width: 500px; margin: 1rem auto;">
-      <label for="name">Name:</label><br>
-      <input type="text" id="name" name="name" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required><br>
-      <label for="email">Email:</label><br>
-      <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required><br>
-      <label for="message">Message:</label><br>
-      <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.5rem;" required></textarea><br>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
+  <!-- Contact / Call to Action -->
+  <section id="contact" class="py-16">
+    <div class="max-w-3xl mx-auto text-center px-4">
+      <h3 class="text-3xl font-bold mb-4">Get Started Today</h3>
+      <p class="mb-6">Sign up for early access and stay ahead of your legal needs.</p>
+      <form class="flex flex-col md:flex-row gap-4 justify-center">
+        <input type="email" placeholder="Your email address" class="flex-1 px-4 py-2 rounded border border-gray-300 focus:ring focus:ring-indigo-300" required>
+        <button type="submit" class="bg-indigo-600 text-white px-6 py-2 rounded hover:bg-indigo-700 transition">Join Waitlist</button>
+      </form>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 Lawyer in Your Pocket. All rights reserved.</p>
+  <!-- Footer -->
+  <footer class="bg-white border-t border-gray-200 py-6 text-center text-sm text-gray-500">
+    &copy; 2025 Your App. All rights reserved.
   </footer>
+
 </body>
 </html>
