@@ -1,45 +1,102 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background-color: #f0f0f0;
-  color: #333;
+/* Material You-inspired color palette */
+:root {
+  --primary-color: #6200ea;
+  --primary-variant: #3700b3;
+  --secondary-color: #03dac6;
+  --background-color: #ffffff;
+  --surface-color: #f5f5f5;
+  --text-primary: #000000;
+  --text-secondary: #666666;
+  --border-radius: 12px;
+  --transition: 0.3s ease-in-out;
+  --font-family: 'Roboto', sans-serif;
 }
 
-header {
-  background-color: #00695c;
-  color: #fff;
-  padding: 1rem;
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+}
+
+header, footer {
+  background-color: var(--primary-color);
+  color: #ffffff;
   text-align: center;
+  padding: 1rem;
+  border-bottom-left-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+
+header h1 {
+  margin: 0.5rem 0;
+  font-size: 1.8rem;
+}
+
+header p {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
+footer {
+  margin-top: 2rem;
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
 }
 
 main {
-  max-width: 800px;
-  margin: 2rem auto;
   padding: 1rem;
-  background-color: #fff;
-  border-radius: 8px;
+}
+
+.intro, .features, .cta, .services-list {
+  background-color: var(--surface-color);
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border-radius: var(--border-radius);
   box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  transition: transform var(--transition);
 }
 
-h1, h2 {
-  margin: 0 0 1rem;
+.intro:hover, .features:hover, .cta:hover, .services-list:hover {
+  transform: translateY(-4px);
 }
 
-p {
-  line-height: 1.5;
+h2 {
+  color: var(--primary-variant);
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li {
+  background-color: #e0e0e0;
+  margin: 0.3rem 0;
+  padding: 0.5rem;
+  border-radius: var(--border-radius);
 }
 
 .button {
   display: inline-block;
-  padding: 0.5rem 1rem;
-  background-color: #009688;
-  color: #fff;
-  border: none;
-  border-radius: 4px;
+  padding: 0.6rem 1.2rem;
+  background-color: var(--secondary-color);
+  color: #000000;
   text-decoration: none;
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition);
 }
 
 .button:hover {
-  background-color: #00796b;
+  background-color: #018786;
+  color: #ffffff;
+}
+
+@media (min-width: 600px) {
+  main {
+    max-width: 800px;
+    margin: auto;
+  }
 }
