@@ -3,162 +3,211 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Lawyer In Your Pocket</title>
+  <title>Lawyer in Your Pocket</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
   <style>
     :root {
-      --primary: #1A73E8;
-      --secondary: #F1F3F4;
-      --text-color: #202124;
-      --background: #ffffff;
-      --accent: #34A853;
-      --footer-bg: #E8EAED;
-      --footer-text: #5F6368;
+      --primary-color: #0a3d62;
+      --secondary-color: #3c6382;
+      --accent-color: #38ada9;
+      --bg-color: #f5f6fa;
+      --text-color: #222;
     }
-
     * {
-      box-sizing: border-box;
       margin: 0;
       padding: 0;
-      font-family: 'Roboto', sans-serif;
+      box-sizing: border-box;
     }
-
+    html {
+      scroll-behavior: smooth;
+    }
     body {
-      background: var(--background);
-      color: var(--text-color);
+      font-family: 'Roboto', sans-serif;
       line-height: 1.6;
-      max-width: 100%;
-      overflow-x: hidden;
+      background: var(--bg-color);
+      color: var(--text-color);
     }
-
     header {
-      background: var(--primary);
-      color: #ffffff;
-      padding: 2rem 1rem;
-      text-align: center;
+      background: var(--primary-color);
+      color: #fff;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
     }
-
     header h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5rem;
-    }
-
-    header p {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-
-    main {
-      padding: 2rem 1rem;
-      max-width: 1200px;
-      margin: auto;
-    }
-
-    section {
-      margin-bottom: 2rem;
-    }
-
-    section h2 {
       font-size: 1.5rem;
-      margin-bottom: 1rem;
-      color: var(--primary);
     }
-
-    section p {
-      margin-bottom: 1rem;
-      opacity: 0.9;
-    }
-
-    .cta {
-      display: inline-block;
-      background: var(--accent);
-      color: #ffffff;
+    nav a {
+      color: #fff;
       text-decoration: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: 4px;
-      transition: background 0.3s ease;
+      margin-left: 1rem;
+      font-weight: 500;
     }
-
-    .cta:hover {
-      background: #2c8f46;
-    }
-
-    footer {
-      background: var(--footer-bg);
-      color: var(--footer-text);
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.9rem;
-    }
-
-    footer nav {
-      margin-top: 1rem;
-    }
-
-    footer nav a {
-      color: var(--footer-text);
-      margin: 0 0.5rem;
-      text-decoration: none;
-    }
-
-    footer nav a:hover {
+    nav a:hover {
       text-decoration: underline;
     }
-
-    /* Responsive styles */
+    .hero {
+      background: var(--secondary-color);
+      color: #fff;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .hero h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto;
+      font-size: 1rem;
+    }
+    .section {
+      padding: 3rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .section h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--primary-color);
+    }
+    .section p {
+      margin-bottom: 1rem;
+    }
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .feature:hover {
+      transform: translateY(-5px);
+    }
+    .feature h4 {
+      margin-bottom: 0.5rem;
+      color: var(--secondary-color);
+    }
+    footer {
+      background: var(--primary-color);
+      color: #fff;
+      text-align: center;
+      padding: 2rem 1rem;
+      margin-top: 3rem;
+    }
+    footer p {
+      font-size: 0.9rem;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent-color);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border-radius: 4px;
+      text-decoration: none;
+      margin-top: 1rem;
+      font-weight: 500;
+      transition: background 0.3s ease;
+    }
+    .btn:hover {
+      background: #079992;
+    }
     @media (max-width: 768px) {
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
       header h1 {
-        font-size: 1.75rem;
-      }
-      section h2 {
-        font-size: 1.25rem;
-      }
-      main {
-        padding: 1rem;
+        margin-bottom: 1rem;
       }
     }
   </style>
 </head>
 <body>
-
   <header>
-    <h1>Lawyer In Your Pocket</h1>
-    <p>Empowering South Africans with on-demand legal guidance and resources.</p>
+    <h1>Lawyer in Your Pocket</h1>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="#features">Features</a>
+      <a href="#contact">Contact</a>
+    </nav>
   </header>
 
-  <main>
-    <section>
-      <h2>What We Offer</h2>
-      <p>Skip expensive consultations—access real legal resources, step-by-step guides, and document templates for everyday legal challenges.</p>
-      <p>From tenant disputes to business registrations, we’re your reliable legal companion.</p>
-    </section>
+  <section class="hero">
+    <h2>Your Legal Ally, Always with You</h2>
+    <p>Access professional-grade legal resources, step-by-step guides, and document templates — anywhere, anytime.</p>
+    <a href="#contact" class="btn">Get Started</a>
+  </section>
 
-    <section>
-      <h2>Our Services</h2>
-      <ul>
-        <li>Family & Personal Law: marriage, divorce, wills, domestic protection.</li>
-        <li>Labour & Employment: CCMA, contract reviews, overtime claims.</li>
-        <li>Business: company registration, contracts, tax compliance.</li>
-        <li>Immigration: visas, permanent residence, citizenship help.</li>
-        <li>Government: SASSA, UIF, municipal complaints.</li>
-      </ul>
-    </section>
+  <section id="services" class="section">
+    <h3>Our Core Services</h3>
+    <p>We help you handle common legal needs without costly lawyers or complex processes:</p>
+    <div class="features">
+      <div class="feature">
+        <h4>Family & Personal Law</h4>
+        <p>Marriage contracts, divorces, wills, domestic violence protection orders, and more.</p>
+      </div>
+      <div class="feature">
+        <h4>Employment & Labor</h4>
+        <p>Unfair dismissal claims, wage disputes, CCMA referrals, and contract reviews.</p>
+      </div>
+      <div class="feature">
+        <h4>Housing & Rental</h4>
+        <p>Eviction disputes, tenant rights, body corporate issues, and municipal appeals.</p>
+      </div>
+      <div class="feature">
+        <h4>Small Business</h4>
+        <p>CIPC registration, SARS tax setups, supplier contracts, and Consumer Protection Act claims.</p>
+      </div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Why Choose Us</h2>
-      <p>Our modern PWA ensures offline access, accurate info, and a seamless experience.</p>
-      <p>We’re committed to affordable, accessible justice for all South Africans.</p>
-      <a class="cta" href="#">Get Started</a>
-    </section>
-  </main>
+  <section id="features" class="section">
+    <h3>Why Choose Us?</h3>
+    <div class="features">
+      <div class="feature">
+        <h4>Document Automation</h4>
+        <p>Auto-fill forms, e-signature readiness, and downloadable templates.</p>
+      </div>
+      <div class="feature">
+        <h4>Expert-Backed Content</h4>
+        <p>All resources reviewed and updated to ensure reliability and trustworthiness.</p>
+      </div>
+      <div class="feature">
+        <h4>Offline Support</h4>
+        <p>Progress is saved so you can continue even without internet access.</p>
+      </div>
+      <div class="feature">
+        <h4>Accessibility First</h4>
+        <p>Multilingual support, plain language guides, and fully mobile-ready.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="section">
+    <h3>Contact Us</h3>
+    <p>Let’s work together to simplify your legal journey.</p>
+    <form action="#" method="post" style="max-width: 500px; margin: 1rem auto;">
+      <label for="name">Name:</label><br>
+      <input type="text" id="name" name="name" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required><br>
+      <label for="email">Email:</label><br>
+      <input type="email" id="email" name="email" style="width: 100%; padding: 0.5rem; margin-bottom: 1rem;" required><br>
+      <label for="message">Message:</label><br>
+      <textarea id="message" name="message" rows="4" style="width: 100%; padding: 0.5rem;" required></textarea><br>
+      <button type="submit" class="btn">Send Message</button>
+    </form>
+  </section>
 
   <footer>
-    <p>&copy; 2025 Lawyer In Your Pocket. All rights reserved.</p>
-    <nav>
-      <a href="#">Privacy</a> |
-      <a href="#">Terms</a> |
-      <a href="#">Contact</a>
-    </nav>
+    <p>&copy; 2025 Lawyer in Your Pocket. All rights reserved.</p>
   </footer>
-
 </body>
 </html>
