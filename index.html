@@ -1,288 +1,357 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legal Companion | Your Lawyer in Your Pocket</title>
+  <!-- Basic Meta -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Legal Companion: Your on-demand, expert-reviewed legal resource—guides, templates, and workflows for everyday needs.">
+  <meta name="robots" content="index,follow">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="alternate" type="application/rss+xml" title="Legal Companion RSS" href="/rss.xml">
+  <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
+
+  <!-- PWA & Theme -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#0A2540">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+
+  <!-- SEO / Open Graph -->
+  <meta property="og:site_name" content="Legal Companion">
+  <meta property="og:title" content="Legal Companion | Your Lawyer in Your Pocket">
+  <meta property="og:description" content="Access step-by-step legal guides, downloadable templates & workflows—no lawyer fees required.">
+  <meta property="og:image" content="https://yourdomain.com/og-image.png">
+  <meta property="og:url" content="https://yourdomain.com">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@YourHandle">
+
+  <!-- Fonts & Preload -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" as="style" onload="this.rel='stylesheet'">
+  <noscript><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"></noscript>
+
+  <!-- Inline CSS -->
   <style>
-    /* ——— Root Variables ——— */
     :root {
-      --primary: #1A73E8;
-      --accent: #34A853;
-      --text-dark: #212121;
-      --text-light: #666666;
-      --bg-light: #F7F9FC;
-      --bg-white: #FFFFFF;
-      --radius: 6px;
+      --color-bg: #f8f9fa;
+      --color-surface: #ffffff;
+      --color-primary: #0A2540;
+      --color-accent: #005A9C;
+      --color-highlight: #34A853;
+      --text-main: #212121;
+      --text-muted: #666666;
+      --radius: 8px;
       --transition: 0.3s ease;
-      --font: 'Helvetica Neue', Arial, sans-serif;
+      --font-base: 'Inter', sans-serif;
     }
-    /* ——— Base Styles ——— */
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: var(--font); }
-    body { background: var(--bg-light); color: var(--text-dark); line-height: 1.6; }
-    a { color: var(--primary); text-decoration: none; transition: color var(--transition); }
-    a:hover { color: var(--accent); }
-    .container { max-width: 1200px; margin: auto; padding: 0 1rem; }
-    h1, h2, h3, h4 { color: var(--text-dark); margin-bottom: 0.5rem; }
-    p { margin-bottom: 1rem; color: var(--text-light); }
-    button, .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: 0.75rem 1.5rem;
-      border-radius: var(--radius);
-      cursor: pointer;
-      transition: background var(--transition);
+    [data-theme="dark"] {
+      --color-bg: #121212;
+      --color-surface: #1e1e1e;
+      --text-main: #e0e0e0;
+      --text-muted: #aaaaaa;
     }
-    button:hover, .btn:hover { background: var(--accent); }
+    *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; font-family:var(--font-base); }
+    html { scroll-behavior:smooth; }
+    body { background:var(--color-bg); color:var(--text-main); line-height:1.6; }
+    a { color:var(--color-accent); text-decoration:none; transition:color var(--transition); }
+    a:hover { color:var(--color-highlight); }
+    .container { width:90%; max-width:1200px; margin: auto; }
 
-    /* ——— Header & Navigation ——— */
-    header {
-      background: var(--bg-white);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      position: sticky;
-      top: 0;
-      z-index: 100;
-    }
-    .nav-container { display: flex; align-items: center; justify-content: space-between; height: 64px; }
-    .logo { font-size: 1.5rem; font-weight: bold; color: var(--primary); }
-    nav a { margin-left: 1.5rem; font-weight: 500; }
+    /* Skip Link */
+    .skip-nav { position:absolute; top:-40px; left:0; background:#000; color:#fff; padding:8px; z-index:100; transition:top .3s; }
+    .skip-nav:focus { top:0; }
 
-    /* ——— Hero Section ——— */
-    .hero {
-      background: var(--primary) url('https://via.placeholder.com/1600x600') center/cover no-repeat;
-      color: #fff;
-      text-align: center;
-      padding: 6rem 1rem;
-      position: relative;
-      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
-    }
-    .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-    .hero p { font-size: 1.25rem; margin-bottom: 2rem; }
-    .hero .btn { background: #fff; color: var(--primary); font-weight: 600; }
+    /* Header */
+    header { background:var(--color-surface); box-shadow:0 2px 4px rgba(0,0,0,0.05); }
+    .nav-wrapper { display:flex; align-items:center; justify-content:space-between; padding:1rem 0; }
+    .logo { font-size:1.5rem; font-weight:700; color:var(--color-primary); }
+    nav ul { list-style:none; display:flex; gap:1.5rem; }
+    nav a { font-weight:500; }
+    .lang-switch { font-size:0.9rem; }
 
-    /* ——— Features Grid ——— */
-    .features {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
-      gap: 2rem;
-      margin: -4rem auto 4rem;
-      padding: 0 1rem;
-    }
-    .feature-card {
-      background: var(--bg-white);
-      padding: 2rem;
-      border-radius: var(--radius);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-      transition: transform var(--transition);
-    }
-    .feature-card:hover { transform: translateY(-5px); }
-    .feature-card h3 { color: var(--primary); }
-    .feature-card p { color: var(--text-light); }
+    /* Hero */
+    .hero { background:var(--color-primary) url('/images/hero.jpg') center/cover no-repeat; color:#fff; text-align:center; padding:6rem 1rem; border-bottom-left-radius:var(--radius); border-bottom-right-radius:var(--radius); }
+    .hero h1 { font-size:3rem; line-height:1.2; }
+    .hero p { font-size:1.25rem; margin:1rem auto 2rem; max-width:600px; }
+    .btn-primary { background:var(--color-accent); color:#fff; padding:.75rem 1.5rem; border:none; border-radius:var(--radius); cursor:pointer; font-size:1rem; font-weight:600; transition:background var(--transition); }
+    .btn-primary:hover { background:var(--color-highlight); }
 
-    /* ——— Resources Section ——— */
-    .resources {
-      background: var(--bg-white);
-      padding: 4rem 1rem;
-      margin-bottom: 4rem;
-      border-radius: var(--radius);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .resources h2 { text-align: center; margin-bottom: 2rem; }
-    .resources-list {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-      gap: 1.5rem;
-    }
-    .resources-list li {
-      list-style: none;
-      padding-left: 1.5rem;
-      position: relative;
-    }
-    .resources-list li:before {
-      content: '✔';
-      position: absolute;
-      left: 0;
-      color: var(--accent);
-    }
+    /* Search */
+    .search-bar { margin:2rem auto; max-width:600px; display:flex; }
+    .search-bar input { flex:1; padding:.75rem; border:1px solid #ccc; border-radius:var(--radius) 0 0 var(--radius); }
+    .search-bar button { border:none; background:var(--color-accent); color:#fff; padding:.75rem 1rem; border-radius:0 var(--radius) var(--radius) 0; cursor:pointer; }
 
-    /* ——— Testimonials ——— */
-    .testimonials {
-      padding: 4rem 1rem;
-      margin-bottom: 4rem;
-    }
-    .testimonials h2 { text-align: center; margin-bottom: 2rem; }
-    .testimonial-cards {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 1.5rem;
-      max-width: 800px;
-      margin: auto;
-    }
-    .testimonial {
-      background: var(--accent);
-      color: #fff;
-      padding: 2rem;
-      border-radius: var(--radius);
-      font-style: italic;
-    }
-    @media(min-width: 600px) {
-      .testimonial-cards { grid-template-columns: 1fr 1fr; }
-    }
+    /* Features */
+    .section { margin:4rem 0; }
+    .section-title { text-align:center; margin-bottom:2rem; }
+    .section-title h2 { font-size:2rem; color:var(--color-primary); }
+    .features-grid { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); }
+    .feature { background:var(--color-surface); padding:2rem; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,0.05); transition:transform var(--transition); }
+    .feature:hover { transform:translateY(-5px); }
+    .feature h3 { margin-bottom:.75rem; color:var(--color-accent); }
 
-    /* ——— FAQ Section ——— */
-    .faq {
-      padding: 4rem 1rem;
-      margin-bottom: 4rem;
-      background: var(--bg-white);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-    }
-    .faq h2 { text-align: center; margin-bottom: 2rem; }
-    .faq-item { margin-bottom: 1rem; }
-    .faq-item h4 { cursor: pointer; padding: 0.5rem; background: #f0f0f0; border-radius: var(--radius); }
-    .faq-item p { display: none; padding: 0.5rem 1rem; color: var(--text-light); }
+    /* Pricing */
+    .pricing { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); margin-top:-2rem; }
+    .plan { background:var(--color-surface); padding:2rem; border-radius:var(--radius); box-shadow:0 4px 8px rgba(0,0,0,0.05); display:flex; flex-direction:column; }
+    .plan h3 { margin-bottom:1rem; }
+    .plan .price { font-size:2rem; font-weight:600; margin-bottom:1rem; }
+    .plan ul { list-style:none; flex:1; margin-bottom:1rem; }
+    .plan ul li { position:relative; padding-left:1.5rem; margin-bottom:.5rem; }
+    .plan ul li::before { content:'✔'; position:absolute; left:0; color:var(--color-highlight); }
+    .plan .btn { margin-top:auto; }
 
-    /* ——— Contact Form ——— */
-    .contact {
-      padding: 4rem 1rem;
-      background: var(--bg-white);
-      border-radius: var(--radius);
-      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-      margin-bottom: 4rem;
-    }
-    .contact h2 { text-align: center; margin-bottom: 2rem; }
-    .contact form { max-width: 600px; margin: auto; display: grid; gap: 1rem; }
-    .contact input, .contact textarea {
-      padding: 0.75rem;
-      border: 1px solid #ccc;
-      border-radius: var(--radius);
-      width: 100%;
-    }
-    .contact button { justify-self: center; }
+    /* Resources */
+    .resources { background:var(--color-surface); padding:3rem; border-radius:var(--radius); box-shadow:0 2px 4px rgba(0,0,0,0.05); }
+    .resources ul { list-style:none; columns:2; column-gap:2rem; }
+    .resources li { position:relative; margin-bottom:1rem; padding-left:1.5rem; }
+    .resources li::before { content:'●'; position:absolute; left:0; color:var(--color-accent); font-size:.5rem; }
+    @media(max-width:600px) { .resources ul { columns:1; } }
 
-    /* ——— Footer ——— */
-    footer {
-      background: var(--bg-white);
-      padding: 2rem 1rem;
-      text-align: center;
-      font-size: 0.9rem;
-      color: var(--text-light);
-      border-top: 1px solid #e0e0e0;
-    }
+    /* Testimonials */
+    .testimonials { position:relative; margin:4rem 0; overflow:hidden; }
+    .slides { display:flex; transition:transform .5s ease; }
+    .testimonial { min-width:100%; padding:2rem; background:var(--color-accent); color:#fff; border-radius:var(--radius); }
+    .testimonial-nav { text-align:center; margin-top:1rem; }
+    .testimonial-nav button { background:var(--color-surface); border:none; margin:.25rem; width:12px; height:12px; border-radius:50%; cursor:pointer; transition:background .3s; }
+    .testimonial-nav button.active { background:var(--color-accent); }
+
+    /* FAQ */
+    .faq { margin:4rem 0; }
+    .faq-item { margin-bottom:1rem; }
+    .faq-item summary { cursor:pointer; padding:1rem; background:var(--color-surface); border-radius:var(--radius); box-shadow:0 2px 4px rgba(0,0,0,0.05); list-style:none; }
+    .faq-item details[open] summary { border-bottom-left-radius:0; border-bottom-right-radius:0; }
+    .faq-item p { padding:0 1rem 1rem; background:var(--color-surface); }
+
+    /* Team */
+    .team { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); margin:4rem 0; }
+    .member { text-align:center; }
+    .member img { width:100px; height:100px; border-radius:50%; object-fit:cover; margin-bottom:1rem; }
+
+    /* Newsletter */
+    .newsletter { background:var(--color-accent); color:#fff; text-align:center; padding:3rem 1rem; border-radius:var(--radius); margin:4rem 0; }
+    .newsletter form { display:inline-flex; overflow:hidden; border-radius:var(--radius); }
+    .newsletter input { padding:.75rem; border:none; width:250px; }
+    .newsletter button { border:none; padding:.75rem 1.5rem; background:var(--color-primary); color:#fff; }
+
+    /* Contact */
+    .contact { margin:4rem 0; }
+    .contact form { display:grid; gap:1rem; max-width:600px; margin:auto; }
+    .contact input, .contact textarea { padding:.75rem; border:1px solid #ccc; border-radius:var(--radius); }
+    .contact button { justify-self:center; }
+
+    /* Map Embed */
+    .map { margin:2rem 0; text-align:center; }
+    .map iframe { width:100%; max-width:600px; height:300px; border:0; border-radius:var(--radius); }
+
+    /* Footer */
+    footer { background:var(--color-surface); padding:2rem 1rem; border-top:1px solid #e0e0e0; }
+    .footer-nav { display:flex; justify-content:center; flex-wrap:wrap; gap:1rem; margin-bottom:1rem; }
+    .footer-nav a { font-weight:500; }
+    footer p { text-align:center; font-size:0.9rem; color:var(--text-muted); }
   </style>
 </head>
-<body>
-  <!-- Header / Nav -->
-  <header>
-    <div class="container nav-container">
+<body lang="en">
+  <a href="#main" class="skip-nav">Skip to content</a>
+  <header role="banner">
+    <div class="container nav">
       <div class="logo">Legal Companion</div>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#resources">Resources</a>
-        <a href="#testimonials">Testimonials</a>
-        <a href="#faq">FAQ</a>
-        <a href="#contact">Contact</a>
+      <nav role="navigation" aria-label="Main">
+        <ul>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#pricing">Pricing</a></li>
+          <li><a href="#resources">Library</a></li>
+          <li><a href="#testimonials">Testimonials</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#team">Team</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </nav>
+      <div class="lang-switch"><label for="lang">Language:</label>
+        <select id="lang" onChange="alert('Switch to '+this.value)">EN | ZU</select>
+      </div>
     </div>
   </header>
 
-  <!-- Hero Banner -->
-  <section class="hero">
-    <div class="container">
+  <main id="main">
+    <!-- Hero -->
+    <section class="hero" role="img" aria-label="Law book and scales background">
       <h1>Your Lawyer in Your Pocket</h1>
-      <p>Access plain-language guides, downloadable forms, and expert-crafted workflows for every legal need—anytime, anywhere.</p>
-      <button class="btn">Get Started</button>
-    </div>
-  </section>
+      <p>Expert-crafted workflows, official templates, and clear guidance—anytime, anywhere.</p>
+      <button class="btn-primary" onclick="document.getElementById('features').scrollIntoView({behavior:'smooth'})">Explore Features</button>
+    </section>
 
-  <!-- Feature Highlights -->
-  <section id="features" class="features container">
-    <div class="feature-card">
-      <h3>Step-by-Step Workflows</h3>
-      <p>Follow clear, numbered steps for processes like evictions, divorces, and CCMA referrals.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Downloadable Templates</h3>
-      <p>Instantly grab official-looking letters, affidavits, and form templates in PDF and DOCX.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Offline-Ready</h3>
-      <p>Cached guides let you work without data, even in remote areas or during outages.</p>
-    </div>
-    <div class="feature-card">
-      <h3>Trusted Sources</h3>
-      <p>All content backed by government gazettes, official forms, and legal expert reviews.</p>
-    </div>
-  </section>
+    <div class="container">
+      <!-- Search -->
+      <div class="search-bar" role="search">
+        <input type="search" placeholder="Search legal guides…" aria-label="Search legal guides">
+        <button aria-label="Search">🔍</button>
+      </div>
 
-  <!-- Resources Library -->
-  <section id="resources" class="resources container">
-    <h2>Resource Library</h2>
-    <ul class="resources-list">
-      <li>Marriage & Civil Unions Guide</li>
-      <li>Uncontested Divorce Flowchart</li>
-      <li>CCMA Referral Wizard</li>
-      <li>Tenant Rights & Eviction Defense</li>
-      <li>Company Registration Checklist</li>
-      <li>SASSA Grants Application Guide</li>
-    </ul>
-  </section>
+      <!-- Features -->
+      <section id="features" class="section" aria-labelledby="features-title">
+        <div class="section-title"><h2 id="features-title">Core Features</h2></div>
+        <div class="features-grid">
+          <div class="feature"><h3>Guided Workflows</h3><p>Step-by-step processes for evictions, divorces, CCMA referrals and more.</p></div>
+          <div class="feature"><h3>Downloadable Templates</h3><p>Official-style letters, affidavits, and forms in PDF/DOCX.</p></div>
+          <div class="feature"><h3>Offline Access</h3><p>Cached resources let you work without data—even in remote areas.</p></div>
+          <div class="feature"><h3>Expert-Reviewed</h3><p>Content vetted by legal professionals and sourced from official gazettes.</p></div>
+        </div>
+      </section>
 
-  <!-- Testimonials -->
-  <section id="testimonials" class="testimonials container">
-    <h2>What Our Users Say</h2>
-    <div class="testimonial-cards">
-      <div class="testimonial">“Saved me thousands in legal fees—completely straightforward and reliable!”</div>
-      <div class="testimonial">“The tenant rights guide was a lifesaver during my rental dispute. Highly recommended.”</div>
-    </div>
-  </section>
+      <!-- Pricing -->
+      <section id="pricing" class="section" aria-labelledby="pricing-title">
+        <div class="section-title"><h2 id="pricing-title">Plans & Pricing</h2></div>
+        <div class="pricing">
+          <div class="plan"><h3>Free</h3><div class="price">R0</div>
+            <ul><li>All basic workflows</li><li>Downloadable templates</li><li>Community support</li></ul>
+            <button class="btn-primary">Get Started</button>
+          </div>
+          <div class="plan"><h3>Pro</h3><div class="price">R99/mo</div>
+            <ul><li>Everything in Free</li><li>Priority updates</li><li>Email support</li></ul>
+            <button class="btn-primary">Upgrade</button>
+          </div>
+          <div class="plan"><h3>Enterprise</h3><div class="price">Contact Us</div>
+            <ul><li>Custom workflows</li><li>Dedicated account manager</li><li>SLA support</li></ul>
+            <button class="btn-primary">Contact Sales</button>
+          </div>
+        </div>
+      </section>
 
-  <!-- FAQ Accordion -->
-  <section id="faq" class="faq container">
-    <h2>Frequently Asked Questions</h2>
-    <div class="faq-item">
-      <h4>Is this service really free?</h4>
-      <p>Yes—all guides and templates are 100% free to access and download.</p>
-    </div>
-    <div class="faq-item">
-      <h4>How do I use the eviction guide?</h4>
-      <p>Follow the numbered steps in the “Tenant Rights & Eviction Defense” section, download the correct form, and submit it at your local magistrate’s court.</p>
-    </div>
-    <div class="faq-item">
-      <h4>Can I access offline?</h4>
-      <p>Yes—once you’ve visited a guide, it’s cached for offline use via your browser’s storage.</p>
-    </div>
-  </section>
+      <!-- Resource Library -->
+      <section id="resources" class="resources" aria-labelledby="resources-title">
+        <h2 id="resources-title">Resource Library</h2>
+        <ul>
+          <li>Marriage & Civil Unions Guide</li>
+          <li>Uncontested Divorce Flowchart</li>
+          <li>CCMA Referral Wizard</li>
+          <li>Tenant Rights & Eviction Defense</li>
+          <li>Company Registration Checklist</li>
+          <li>SASSA Grants Application Guide</li>
+        </ul>
+      </section>
 
-  <!-- Contact Form -->
-  <section id="contact" class="contact container">
-    <h2>Contact Us</h2>
-    <form action="https://formspree.io/f/your-form-id" method="POST">
-      <input type="text" name="name" placeholder="Your Name" required />
-      <input type="email" name="email" placeholder="Your Email" required />
-      <textarea name="message" rows="5" placeholder="How can we help?" required></textarea>
-      <button type="submit" class="btn">Send Message</button>
-    </form>
-  </section>
+      <!-- Testimonials -->
+      <section id="testimonials" class="testimonials" aria-labelledby="testimonials-title">
+        <div class="section-title"><h2 id="testimonials-title">What Our Users Say</h2></div>
+        <div class="slides">
+          <div class="testimonial">“Saved me thousands in legal fees—straightforward & reliable!”</div>
+          <div class="testimonial">“Eviction guide was a lifesaver during my rental dispute.”</div>
+          <div class="testimonial">“Helped me register my company in record time.”</div>
+        </div>
+        <div class="testimonial-nav">
+          <button class="active" aria-label="Show testimonial 1"></button>
+          <button aria-label="Show testimonial 2"></button>
+          <button aria-label="Show testimonial 3"></button>
+        </div>
+      </section>
+
+      <!-- FAQ -->
+      <section id="faq" class="faq" aria-labelledby="faq-title">
+        <div class="section-title"><h2 id="faq-title">Frequently Asked Questions</h2></div>
+        <details class="faq-item"><summary>Is this service free?</summary><p>Yes—100% free access to all guides and templates.</p></details>
+        <details class="faq-item"><summary>Can I work offline?</summary><p>Absolutely—once loaded, resources are available offline.</p></details>
+        <details class="faq-item"><summary>Where does the content come from?</summary><p>All materials are sourced from official government gazettes and reviewed by legal experts.</p></details>
+      </section>
+
+      <!-- Team -->
+      <section id="team" class="team" aria-labelledby="team-title">
+        <div class="section-title"><h2 id="team-title">Meet Our Team</h2></div>
+        <div class="member"><img src="/images/jane.jpg" alt="Jane Doe"><h4>Jane Doe</h4><p>Founder & Legal Lead</p></div>
+        <div class="member"><img src="/images/john.jpg" alt="John Smith"><h4>John Smith</h4><p>Chief Technology Officer</p></div>
+        <div class="member"><img src="/images/mary.jpg" alt="Mary Johnson"><h4>Mary Johnson</h4><p>Content Editor</p></div>
+      </section>
+
+      <!-- Newsletter -->
+      <section class="newsletter" aria-labelledby="newsletter-title">
+        <div class="section-title"><h2 id="newsletter-title">Stay Informed</h2></div>
+        <p>Subscribe for updates on new guides, legal changes, and expert tips.</p>
+        <form onsubmit="alert('Thank you!'); return false;">
+          <input type="email" placeholder="Email address" aria-label="Email address" required>
+          <button class="btn-primary">Subscribe</button>
+        </form>
+      </section>
+
+      <!-- Contact + Map -->
+      <section id="contact" class="contact" aria-labelledby="contact-title">
+        <div class="section-title"><h2 id="contact-title">Contact Us</h2></div>
+        <form action="https://formspree.io/f/your-form-id" method="POST">
+          <div style="display:grid; gap:1rem; grid-template-columns:1fr 1fr;">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Your Email" required>
+          </div>
+          <textarea name="message" rows="4" placeholder="How can we help?" required></textarea>
+          <button class="btn-primary">Send Message</button>
+        </form>
+        <div class="map" aria-label="Our office location">
+          <iframe src="https://www.google.com/maps/embed?pb=..." allowfullscreen loading="lazy"></iframe>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Cookie Consent -->
+  <div id="cookie-banner" style="position:fixed;bottom:0;width:100%;background:var(--color-surface);padding:1rem;text-align:center;box-shadow:0 -2px 6px rgba(0,0,0,0.1);">
+    <span>We use cookies to improve your experience. <a href="/privacy">Learn more</a>.</span>
+    <button onclick="document.getElementById('cookie-banner').style.display='none';" style="margin-left:1rem;">Accept</button>
+  </div>
 
   <!-- Footer -->
   <footer>
-    <div class="container">
-      <p>&copy; 2025 Legal Companion. All rights reserved.</p>
-      <p><a href="#features">Features</a> · <a href="#resources">Resources</a> · <a href="#contact">Contact</a></p>
+    <div class="container footer-nav">
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#resources">Library</a>
+      <a href="#testimonials">Testimonials</a>
+      <a href="#faq">FAQ</a>
+      <a href="#team">Team</a>
+      <a href="#contact">Contact</a>
     </div>
+    <p>&copy; 2025 Legal Companion. All rights reserved.</p>
   </footer>
 
-  <!-- Accordion FAQ Script -->
-  <script>
-    document.querySelectorAll('.faq-item h4').forEach(header => {
-      header.addEventListener('click', () => {
-        const p = header.nextElementSibling;
-        p.style.display = p.style.display === 'block' ? 'none' : 'block';
-      });
-    });
+  <!-- Inline JavaScript -->
+  <script defer>
+    // Smooth scroll for buttons
+    document.querySelectorAll('.btn-primary').forEach(btn => btn.addEventListener('click', e => {
+      const sec = e.target.getAttribute('onclick')?.match(/'([^']+)'/);
+      if(sec) document.querySelector(sec[1]).scrollIntoView({behavior:'smooth'});
+    }));
+    // Testimonials slider
+    const slides = document.querySelector('.slides'),
+          dots = document.querySelectorAll('.testimonial-nav button');
+    let idx = 0;
+    function show(i){ slides.style.transform=`translateX(-${i*100}%)`; dots.forEach((d,j)=>d.classList.toggle('active',j===i)); idx=i; }
+    dots.forEach((d,i)=>d.addEventListener('click',()=>show(i)));
+    // Auto-advance every 5s
+    setInterval(()=>show((idx+1)%dots.length),5000);
+  </script>
+
+  <!-- JSON-LD Organization Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Legal Companion",
+    "url": "https://yourdomain.com",
+    "logo": "https://yourdomain.com/logo.png",
+    "sameAs": ["https://facebook.com/your","https://twitter.com/your"],
+    "contactPoint": [{
+      "@type": "ContactPoint",
+      "telephone": "+27-123-456-7890",
+      "contactType": "Customer service",
+      "areaServed": "ZA",
+      "availableLanguage": ["en","zu"]
+    }]
+  }
+  </script>
+
+  <!-- Google Analytics (replace GA_MEASUREMENT_ID) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+  <script defer>
+    window.dataLayer=window.dataLayer||[];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js',new Date());
+    gtag('config','GA_MEASUREMENT_ID');
   </script>
 </body>
 </html>
