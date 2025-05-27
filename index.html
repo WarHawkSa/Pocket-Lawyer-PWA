@@ -1,63 +1,149 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Legal Companion</title>
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Your Legal Companion</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #6200ee;
+    --secondary-color: #03dac6;
+    --background-color: #f5f5f5;
+    --surface-color: #ffffff;
+    --text-color: #333333;
+    --corner-radius: 24px;
+  }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+  }
+  body {
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+  header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 2rem;
+    border-bottom-left-radius: var(--corner-radius);
+    border-bottom-right-radius: var(--corner-radius);
+  }
+  header h1 {
+    font-size: 2rem;
+  }
+  .container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+  }
+  section {
+    background: var(--surface-color);
+    margin-bottom: 2rem;
+    border-radius: var(--corner-radius);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    padding: 2rem;
+  }
+  section h2 {
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+  }
+  .features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+  }
+  .feature {
+    background: var(--background-color);
+    border-radius: var(--corner-radius);
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  }
+  .feature h3 {
+    margin-bottom: 0.5rem;
+  }
+  .testimonial {
+    background: var(--secondary-color);
+    color: white;
+    border-radius: var(--corner-radius);
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+  footer {
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-top-left-radius: var(--corner-radius);
+    border-top-right-radius: var(--corner-radius);
+  }
+</style>
 </head>
 <body>
-  <header>
-    <div class="container">
-      <h1>Legal Companion</h1>
-      <nav>
-        <a href="#features">Features</a>
-        <a href="#resources">Resources</a>
-        <a href="#contact">Contact</a>
-      </nav>
-    </div>
-  </header>
 
-  <section class="hero">
-    <div class="container">
-      <h2>Your Lawyer in Your Pocket</h2>
-      <p>Access legal resources and step-by-step guidance for any situation—no lawyer fees, no confusion.</p>
-      <a href="#contact" class="cta-button">Get Started</a>
-    </div>
-  </section>
+<header>
+  <h1>Your Legal Companion</h1>
+  <p>Empowering every South African with on-demand legal resources.</p>
+</header>
 
-  <section id="features" class="features">
-    <div class="container">
-      <h2>Features</h2>
-      <div class="feature-grid">
-        <div class="feature-card">
-          <h3>Step-by-Step Guides</h3>
-          <p>Easy-to-follow legal processes for family, work, and housing needs.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Templates & Documents</h3>
-          <p>Downloadable forms and checklists to handle cases yourself.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Offline Ready</h3>
-          <p>Access your resources and guides even without an internet connection.</p>
-        </div>
+<div class="container">
+  <section>
+    <h2>Key Services</h2>
+    <div class="features">
+      <div class="feature">
+        <h3>Family Law</h3>
+        <p>Marriage contracts, divorces, maintenance orders, and more—step-by-step resources for every situation.</p>
+      </div>
+      <div class="feature">
+        <h3>Employment Rights</h3>
+        <p>Unfair dismissals, wage disputes, CCMA referrals, and workplace rights.</p>
+      </div>
+      <div class="feature">
+        <h3>Business & Commercial</h3>
+        <p>Company registrations, tax guides, and consumer protection for entrepreneurs.</p>
+      </div>
+      <div class="feature">
+        <h3>Housing & Evictions</h3>
+        <p>Defend your rights as a tenant or landlord with clear, accurate resources.</p>
+      </div>
+      <div class="feature">
+        <h3>Immigration</h3>
+        <p>Visa processes, citizenship applications, and refugee support resources.</p>
+      </div>
+      <div class="feature">
+        <h3>Public Benefits</h3>
+        <p>SASSA grants, UIF claims, and other social safety nets to protect vulnerable communities.</p>
       </div>
     </div>
   </section>
 
-  <section id="resources" class="resources">
-    <div class="container">
-      <h2>Resources</h2>
-      <p>Browse a library of plain-language legal guides, sample forms, and practical advice tailored to your needs.</p>
-      <a href="#contact" class="cta-button">Explore Resources</a>
+  <section>
+    <h2>Trusted by Individuals & Small Businesses</h2>
+    <div class="testimonial">
+      “This site saved me thousands in legal fees and helped me file for maintenance without any confusion. Thank you!”
+    </div>
+    <div class="testimonial">
+      “I was able to register my company and understand tax obligations in less than an hour. Invaluable resource!”
     </div>
   </section>
 
-  <footer id="contact" class="footer">
-    <div class="container">
-      <p>&copy; 2025 Legal Companion. All rights reserved.</p>
-    </div>
-  </footer>
+  <section>
+    <h2>Resource Library</h2>
+    <p>Access comprehensive, plain-language guides for any legal challenge, including:</p>
+    <ul>
+      <li>Step-by-step flowcharts for major processes</li>
+      <li>Template forms and letters you can download and use</li>
+      <li>Jargon-free explanations of South African law</li>
+    </ul>
+  </section>
+</div>
+
+<footer>
+  &copy; 2025 Your Legal Companion. All rights reserved.
+</footer>
+
 </body>
 </html>
